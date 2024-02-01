@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+<!-- Mirrored from mail.ecp.gov.pk/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 11:05:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <script type="text/javascript" nonce="AXI-SCRIPT-1242749"src="i18n_t.js"></script>
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749">// Generate the JS dictionary
+    var Dictionary = [];</script>
+<title>Election Commission Pakistan WebMail</title>
+
+    <link rel="shortcut icon" href="BrandingPicturecae7.png?elementName=faviconPhoto" />
+    <!-- Include custom login styles -->
+    <link rel="StyleSheet" type="text/css" href="private/ajax/Libraries/Ext/resources/css/ext-all3204.css?v=1033590" />
+    <link rel="StyleSheet" type="text/css" href="private/ajax/Resources/css/axi-custom-scrollbar3204.css?v=1033590" />
+    <link rel="StyleSheet" type="text/css" href="css/axigen-web-fonts3204.css?v=1033590" />
+    <link rel="StyleSheet" type="text/css" href="css/style_ajax3204.css?v=1033590" />
+
+    <link rel="StyleSheet" type="text/css" href="css/style_ajax_breeze3204.css?v=1033590" />
+        <!-- Login JS functions -->
+    <script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="js/lib_login3204.js?v=1033590"></script>
+
+    <script type="text/javascript" nonce="AXI-SCRIPT-1242749">
+        AxiUrl = "";
+    </script>
+    <script type="text/javascript" nonce="AXI-SCRIPT-1242749">
+    Axi = {AccountInfo: {languageDirection: 'ltr'}};
+    </script>
+</head>
+
+<body class="lang-en  theme-breeze   ">
+
+
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749">
+    // Ensure login screen gets rendered in the top level frame
+    if (top != window) {
+        top.document.location.href = document.location.href;
+    }
+</script>
+
+
+<noscript>
+<div class="errorContainer">
+    <div class="content">
+        <h1>In order to access Election Commission Pakistan Webmail, <br />you must enable Javascript in your browser!</h1>
+    </div>
+</div>
+</noscript>
+
+<div class="errorContainer" id="cookiesDisabled">
+    <div class="content">
+        <h1>In order to access Election Commission Pakistan Webmail, <br />you must enable Cookies in your browser!</h1>
+    </div>
+</div>
+
+<!-- main container -->
+<div class="main-container">
+	
+    <div class="center-container">
+	<div class="logo" style="background-image: url('images/ajax/ecp-logo.png');"></div>
+        <h1>
+            Election Commission Pakistan WebMail</h1>
+        <h2>
+            Log in to your Election Commission Pakistan email account</h2>
+        <div class="form-container loading" id="form-container">
+            </div>
+    </div>
+
+
+    <div class="footnote">
+
+        <p>Switch to <a title="Standard Interface" href="index.html" onclick="switchInterface('axi_login_settings_cookie', 'standard')">Standard Interface</a></p>
+        <div id="language-container"></div>
+    </div>    
+
+</div>
+
+<div class="footer-container">
+    <p class="powered-by">Powered by <a target="blank" href="https://www.axigen.com/?utm_source=product&amp;utm_medium=webmail&amp;utm_campaign=webmail_login_page_en">Axigen</a></p>
+    <p class="copyright">Email, calendaring, and collaboration<br />Total privacy, high availability, and scalability</p>
+</div>
+
+<!--  Display preloader -->
+<div id="loading-mask" class="x-axi-loading-mask">
+    <div class="loading-spinner medium"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"></circle></svg></div>  
+</div>
+
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="private/ajax/Libraries/Ext/adapter/ext/ext-base3204.js?v=1033590"></script>
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="private/ajax/Libraries/Ext/ext-all3204.js?v=1033590"></script>
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="private/ajax/Libraries/Axi/ext-fixes3204.js?v=1033590"></script>
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="private/ajax/Libraries/Axi/Ext/widgets/layout/FormLayout3204.js?v=1033590"></script>
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="private/ajax/Classes/Messenger3204.js?v=1033590"></script>
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="private/ajax/Libraries/Axi/Axi3204.js?v=1033590"></script>
+
+<!-- Include security patches -->
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749" src="js/CSP/CSP3204.js?v=1033590"></script>
+
+
+<script nonce="AXI-SCRIPT-1242749">
+    CSP.fixInlineClickHandlers();
+</script>
+
+<script type="text/javascript" nonce="AXI-SCRIPT-1242749">
+
+Ext.onReady(function(){
+    var loginBut;
+    //Check if browser accepts cookies
+    if (!cookiesAllowed()) {
+        var container = Ext.DomQuery.selectNode('#cookiesDisabled');
+        if (container) container.style.display = "flex";
+    }
+
+    removeCookie("checkOverQuota");
+    removeCookie("passwordExpireWarning");
+
+    Ext.BLANK_IMAGE_URL = 'images/dot.gif';
+
+    Ext.QuickTips.init();
+    var messenger = new Axi.Messenger();
+
+    var getFormFieldValue = function (name) {
+            var result = '';
+
+            var domains = [
+            ];
+            var form_no = "remember";
+            
+            // Commenting the code below in order to 
+            // prevent IE & FF to not display the form fields and/or button when refreshing after server restart
+            /*
+            if (Ext.isGecko && document.forms[form_no].password.value !== '' && ((document.forms[form_no].username && document.forms[form_no].username.value !== '') || (document.forms[form_no].domainname && document.forms[form_no].domainname.value !== ''))) {
+                switch(name) {
+                    case "username":
+                        if (document.forms[form_no].username && document.forms[form_no].username.value !== '') {
+                            result = document.forms[form_no].username.value;
+                        }
+                        break;
+
+                    case "password":
+                        if (document.forms[form_no].password.value !== '' && getFormFieldValue('username')) {
+                            result = document.forms[form_no].password.value;
+                        }
+                        break;
+
+                    case "domainname":
+                        if (document.forms[form_no].domainname && document.forms[form_no].domainname.value !== '' && domains.indexOf(document.forms[form_no].domainname.value) != -1) {
+                            result = document.forms[form_no].domainname.value;
+                        }
+                        break;
+                }
+            } else { */
+                switch(name) {
+                    case "username":
+                        result = (typeof cookieUsername !== "undefined" && cookieUsername)?cookieUsername:''
+                        break;
+
+                    case "password":
+                        break;
+
+                    case "domainname":
+                        result = (typeof cookieDomain !== "undefined" && cookieDomain)?cookieDomain:'';
+                        break;
+                }
+        // }
+
+            return result;
+    }
+
+    // Remove preloader
+    setTimeout(function(){
+        Ext.get('loading-mask').fadeOut({remove:true});
+        Ext.get('form-container').removeClass('loading');
+        setTimeout(function(){
+            Ext.get('form-container').addClass('loaded');
+        }, 200);
+    }, 250);
+
+    var loginActions = {
+        method:'POST',
+
+        // Functions that fire (success or failure) when the server responds.
+        // The one that executes is determined by the
+        // response that comes from login.asp as seen below. The server would
+        // actually respond with valid JSON,
+        // something like: response.write "{ success: true}" or
+        // response.write "{ success: false, errors: { reason: 'Login failed. Try again.' }}"
+        // depending on the logic contained within your server script.
+        // If a success occurs, the user is notified with an alert messagebox,
+        // and when they click "OK", they are redirected to whatever page
+        // you define as redirect.
+
+        success: function (elem, data) {
+            // hide axi preloader
+            login.preloaderStop(false);
+
+            // Remember Login
+            var rememberLogin = Ext.getCmp('rememberLogin');
+
+            var usernameCmp = Ext.getCmp('username');
+            if (usernameCmp) var username = usernameCmp.getValue();
+
+            var domainnameCmp = Ext.getCmp('domainname');
+            if (domainnameCmp) var domainname = domainnameCmp.getValue();
+
+            var rawUsername = username;
+            if (domainname) rawUsername += '@' + domainname;
+
+            if (rememberLogin && rememberLogin.getValue()) {
+                setCookie("AXIWMRememberLogin", rawUsername);
+            } else {
+                removeCookie("AXIWMRememberLogin");
+            }
+
+            var response = Ext.decode(data.response.responseText);
+
+            var _h = response.sessionKey;
+
+            var redirect = '/?_h=' + _h;
+            window.location = redirect;
+        },
+
+        // Failure function, see comment above re: success and failure.
+        // You can see here, if login fails, it throws a messagebox
+        // at the user telling him / her as much.
+        failure:function(form, action){
+            // hide axi preloader
+            login.preloaderStop();
+
+            var obj = Ext.util.JSON.decode(action.response.responseText);
+
+            if (obj && obj.passwordExpired) {
+                if (obj.passwordUnchangeable) {
+                    return messenger.error(t('Your password has expired. Please contact the administrator in order to get a new one.'));
+                }
+
+                var redirectUrl = '/?passwordExpired=yes&username=' + obj.username;
+                if (obj.domainname) {
+                    redirectUrl += '&domainName='+ obj.domainname;
+                }
+
+                document.location.href = redirectUrl;
+                return;
+            }
+
+            if (action.failureType == 'server') {
+                Axi.Messenger.getInstance().error(t(obj.errors.reason));
+                if (obj.errors.code == 'MLIST_NOT_SUPPORTED') {
+                    Ext.Ajax.request({
+                        url: '/?_h=' + obj.errors.sessionKey + '&action=logout'
+                    });
+                }
+            } else {
+                Axi.Messenger.getInstance().error(t('Unable to connect to server!'));
+            }
+
+            // Show / reset CAPTCHA as required
+            Captcha.onChange(true);
+        }
+    }
+
+    // Basic focus manager
+    FocusManager = {
+        order: [
+            'username',
+            'password',
+            'login'
+        ],
+
+        fields: {},
+        activeField: null,
+        add: function (cmp) {
+            //console.log('ADD', cmp.name);
+            cmp.on('focus', function () {
+                FocusManager.activeField = cmp;
+            });
+            FocusManager.fields[cmp.name] = cmp;
+        },
+
+        setActive: function (f) {
+            //console.log('SETACTIVE', f.name);
+            FocusManager.activeField = f;
+            f.focus.defer(1, f);
+        },
+
+        goto: function (step) {
+            //console.log('GOTO', step);
+            var cid = FocusManager.activeField.name;
+
+            for (var idx = 0; idx < FocusManager.order.length &&
+                FocusManager.order[idx] != cid; ++idx);
+
+            //console.log('GOTO', 'found ' + idx);
+
+            idx += step;
+            if (idx >= FocusManager.order.length) {
+                idx = 0;
+            } else if (idx < 0) {
+                idx = FocusManager.order.length - 1;
+            }
+
+            //console.log('GOTO', 'goto ' + idx);
+
+            return FocusManager.fields[FocusManager.order[idx]];
+        },
+        next: function () {
+            //console.log('NEXT');
+            FocusManager.setActive(FocusManager.goto(1));
+        },
+        prev: function () {
+            //console.log('PREV');
+            FocusManager.setActive(FocusManager.goto(-1));
+        }
+    };
+
+    Ext.EventManager.on(document, 'keydown', function (e) {
+        if (Ext.EventObject.TAB != e.getKey()) {
+            return;
+        }
+
+        if (e.shiftKey) {
+            FocusManager.prev();
+        } else {
+            FocusManager.next();
+        }
+
+        e.stopEvent();
+    });
+
+    Ext.EventManager.on(document, 'keydown', function (e) {
+        if (Ext.EventObject.ENTER != e.getKey()) {
+            return;
+        }
+
+        // Block any other submit action for 100ms
+        login.nosubmit = true;
+        (function () { login.nosubmit = false; }).defer(100);
+
+        // Extra validation for the ENTER key
+        var passwordField = login.getForm().findField('password');
+        if (e.getTarget().id == 'username' && !passwordField.getValue()) {
+            FocusManager.setActive(passwordField);
+            return;
+        }
+
+        login.axisubmit();
+    });
+
+
+    // Create a variable to hold our EXT Form Panel.
+    // Assign various config options as seen.
+    var login = new Ext.FormPanel({
+        labelWidth: 80,
+        url:'/?action=login&custom=ajax',
+        frame: false,
+
+        labelWidth: 70,
+
+        renderTo: Ext.get('form-container'),
+        monitorValid:true,
+
+        preloaderStart: function() {
+            // make sure no messages are visible & show Axi preloader
+            Axi.Messenger.getInstance().clearMessages();
+            Axi.Util.preloaderStart({
+                msg: t('Logging in...')
+            });
+
+            if (loginBut) loginBut.getEl().dom.className += ' x-item-disabled';
+        },
+
+        preloaderStop: function(enableButton) {
+            Axi.Util.preloaderStop();
+
+            if (enableButton !== false) {
+                if (loginBut) loginBut.getEl().dom.className = loginBut.getEl().dom.className.replace(/ x-item-disabled/ig, '');
+            }
+        },
+
+        /**
+         * Validate and submit form
+         * @param {Boolean} [run=false]
+         * @return {Boolean}
+         */
+
+        axisubmit: function (run)
+        {
+            // Prevent multiple form submits
+            if (!run) {
+                window.clearTimeout(this._tid);
+                this._tid = (function () {
+                    this.axisubmit(true);
+                }).defer(100, this);
+                return;
+            }
+
+            var field;
+            var errors = [];
+            var values = this.getForm().getValues();
+
+            var domainname = this.getForm().findField('domainname');
+            if (domainname && !domainname.getValue()) {
+                var rawEl = Ext.DomQuery.selectNode('input[name=domainname]');
+                if (rawEl && rawEl.value != t('select a domain')) {
+                    domainname.setValue(rawEl.value);
+                }
+            }
+
+            if (!values['username']) {
+                errors.push({
+                    id: 'username',
+                    msg: t('This field is required')
+                });
+
+                if (typeof field == 'undefined') {
+                    if (field = this.getForm().findField('username')) {
+                        FocusManager.setActive(field);
+                    }
+                }
+            }
+
+            if (!values['password']) {
+                errors.push({
+                    id: 'password',
+                    msg: t('This field is required')
+                });
+
+                if (typeof field == 'undefined') {
+                    if (field = this.getForm().findField('password')) {
+                        FocusManager.setActive(field);
+                    }
+                }
+            }
+
+            if (!values['username'] || !values['password']) {
+                Axi.Messenger.getInstance().error(t('Please fill in both your username and your password.'));
+            }
+
+            if (errors.length) {
+                this.getForm().markInvalid(errors);
+                return false;
+            }
+
+            /**
+             * CAPTCHA
+             */
+
+            var _this = this;
+            Captcha.isValid(function (error, isValid) {
+                if (!error && isValid) {
+                    _this.getForm().submit(loginActions);
+                    _this.preloaderStart();
+                }
+            });
+
+            return false;
+        },
+
+    // Specific attributes for the text fields for username / password.
+    // The "name" attribute defines the name of variables sent to the server.
+        items: 
+        [
+            {
+                xtype: 'fieldset',
+                cls: 'x-axi-fieldset x-axi-login-fieldset',
+                autoHeight: true,
+                items:
+                [
+                    {
+                        layout: 'axiform',
+                        items: {
+                            xtype: 'textfield',
+                            autoCreate: {tag: "input"},
+                            id: 'username',
+                            fieldLabel: '',
+                            labelSeparator: '',
+                            labelPlaceholder: t('Username'),
+                            cls: 'x-axi-textfield ltr-forced text-align-right',
+                            itemCls: 'x-axi-label x-axi-link-username-label ',
+                            name: 'username',
+                            value: getFormFieldValue('username'),
+                            anchor: '100%',
+                            allowBlank: true,
+                            listeners: {
+                                change: function (cmp) {
+                                    cmp.setValue(cmp.getValue().trim());
+                                    Captcha.onChange();
+                                },
+                                render: function (cmp) {
+                                    FocusManager.add(cmp);
+                                    if (!cmp.value) FocusManager.setActive(cmp);
+                                }
+                            }
+                        }
+                    },
+                    {
+                        layout: 'axiform',
+                        items: {
+                            xtype: 'textfield',
+                            autoCreate: {tag: "input"},
+                            id: 'password',
+                            fieldLabel: '',
+                            labelSeparator: '',
+                            labelPlaceholder: t('Password'),
+                            cls: 'x-axi-textfield x-axi-password',
+                            itemCls: 'x-axi-label',
+                            name: 'password',
+                            inputType: 'password',
+                            value: getFormFieldValue('password'),
+                            anchor: '100%',
+                            allowBlank: true,
+                            enableKeyEvents: true,
+                            firstcharPressed: false,
+                            capsMessageSent: false,
+                            listeners: {
+                                render: function(cmp) {
+                                    FocusManager.add(cmp);
+                                    if (getFormFieldValue('username')) FocusManager.setActive(cmp);
+                                },
+                                keydown: function(p, e) {
+                                    charCode = e.getCharCode();
+                                    if( this.firstcharPressed && charCode == 20 ) {
+                                        this.el.toggleClass('x-axi-password-caps');
+                                        if( !this.capsMessageSent && this.el.hasClass('x-axi-password-caps') ) {
+                                            this.capsMessageSent = true;
+                                            Axi.Messenger.getInstance().warn(t("Caps Lock is ON."));
+                                        }
+                                    }
+                                },
+                                keypress: function(p, e) {
+                                    charCode = e.getCharCode();
+                                    if (charCode <= 64 || charCode >= 123 || (charCode >= 91 && charCode <= 96)) {
+                                        return;
+                                    }
+                                    this.firstcharPressed = true;
+                                    if(
+                                        (e.shiftKey && charCode >= 97 && charCode <= 122) ||
+                                        (!e.shiftKey && charCode >= 65 && charCode <= 90)
+                                    ){
+                                        if( !this.capsMessageSent ) {
+                                            this.capsMessageSent = true;
+                                            Axi.Messenger.getInstance().warn(t("Caps Lock is ON."));
+                                        }
+                                        this.addClass('x-axi-password-caps')
+                                    } else {
+                                        this.removeClass('x-axi-password-caps')
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        cls: 'x-axi-captcha-container',
+                        items: 
+                        [
+                            {
+                                id: 'captcha-img',
+                                hidden: true,
+
+                                xtype: 'box',
+                                autoEl: {
+                                    tag: 'img',
+                                    src: '',
+                                    cls: 'x-axi-captcha-image'
+                                }
+                            },
+                            {
+                                id: 'captcha-reload',
+                                hidden: true,
+
+                                xtype: 'box',
+                                autoEl: {
+                                    tag: 'a',
+                                    cls: 'x-axi-captcha-reload',
+                                    html: ''
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        id: 'captcha-text',
+                        hidden: true,
+
+                        layout: 'column',
+
+                        listeners: {
+                            show: function (cmp) {
+                                Captcha.focus();
+                            }
+                        },
+
+                        items: {
+                            layout: 'axiform',
+                            items: {
+                                xtype: 'textfield',
+                                autoCreate: {
+                                    tag: "input"
+                                },
+                                id: 'captchaText',
+                                fieldLabel: '',
+                                labelSeparator: '',
+                                labelPlaceholder: t('Enter the text in the image'),
+                                cls: 'x-axi-textfield',
+                                itemCls: 'x-axi-label',
+                                name: 'captchaText',
+                                value: getFormFieldValue('captchaText'),
+                                anchor: '100%',
+                                allowBlank: true,
+                                listeners: {
+                                    render: function(cmp) {
+                                        FocusManager.add(cmp);
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        xtype: 'hidden',
+                        id: 'captchaId',
+                        name: 'captchaId',
+                        value: ''
+                    },
+                    {
+                        xtype: 'textfield',
+                        inputType: 'submit',
+                        hideLabel: 'true',
+                        type: 'submit',
+                        name: 'login',
+                        value: t('Log in'),
+                        ctCls: 'x-axi-button',
+                        listeners: {
+                            render: function (cmp) {
+
+                                loginBut = this;
+
+                                cmp.getEl().dom.parentNode.parentNode.className += ' x-axi-button-container';
+
+                                Ext.EventManager.on(cmp.getEl().dom.parentNode, "mousedown", function () {
+                                    cmp.getEl().dom.parentNode.parentNode.className += ' x-axi-button-click';
+                                });
+
+                                Ext.EventManager.on(cmp.getEl().dom.parentNode, "mouseup", function () {
+                                    cmp.getEl().dom.parentNode.parentNode.className = cmp.getEl().dom.parentNode.parentNode.className.replace(/ x-axi-button-click/ig, '');
+                                });
+
+                                Ext.EventManager.on(cmp.getEl().dom.parentNode, "mouseover", function () {
+                                    cmp.getEl().dom.parentNode.parentNode.className += ' x-axi-button-over';
+                                });
+
+                                Ext.EventManager.on(cmp.getEl().dom.parentNode, "mouseout", function () {
+                                    cmp.getEl().dom.parentNode.parentNode.className = cmp.getEl().dom.parentNode.parentNode.className.replace(/ x-axi-button-over/ig, '');
+                                    cmp.getEl().dom.parentNode.parentNode.className = cmp.getEl().dom.parentNode.parentNode.className.replace(/ x-axi-button-click/ig, '');
+                                });
+
+                                Ext.EventManager.on(cmp.getEl(), "click", function (e, el) {
+                                    //Check if browser accepts cookies
+                                    if (!cookiesAllowed()) {
+                                        var container = Ext.DomQuery.selectNode('#cookiesDisabled');
+                                        if (container) {
+                                            container.style.display = "block";
+                                        }
+                                    // Ext triggers this click event on submit, so
+                                    // any other submit action (i.e. ENTER) must block
+                                    // this behaviour
+                                    } else if (!login.nosubmit) {
+                                        login.axisubmit();
+                                    }
+                                });
+
+                                FocusManager.add(cmp);
+                            }
+                        }
+                    },
+       
+            {
+                        xtype: 'panel',
+                        height: 21,
+                        html: '&nbsp;'
+                    },
+            {
+                        layout: 'column',
+                        cls: 'x-axi-link-username-password',
+                        items: 
+                        [
+                            {
+                            },
+                            {
+                            }
+                        ]
+                    },
+                    {
+                        layout: 'column',
+                        cls: 'x-axi-secure-unsecure-container',
+                        items: 
+                        [
+                            ]
+                    },
+                    {
+                        xtype: 'hidden',
+                        autoCreate: {
+                            tag: 'input',
+                            autocomplete: 'on',
+                            type: 'hidden'
+                        },
+                        name: 'domainname',
+                        id: 'domainname',
+                        value: ''
+
+                    }
+                ]
+            }
+        ]
+    });
+
+    var Captcha = {
+        form: null,
+        isRequired: null,
+        isRequiredQueried: false,
+
+        init: function ()
+        {
+            this.form = login;
+
+            Ext.getCmp('captcha-reload').getEl().on('click', function () {
+                Captcha.show();
+            });
+        },
+
+        onChange: function (failedLogin)
+        {
+            Captcha.noFocus = !!failedLogin;
+
+            // Ensure the CAPTCHA text field is empty
+            if (!failedLogin) {
+                this.form.getForm().findField('captchaText').setValue('');
+            }
+
+            // Reset CAPTCHA
+            this.isRequired = null;
+            this.isRequiredQueried = false;
+
+            this.queryIsRequired();
+        },
+
+        isValid: function (callback)
+        {
+            // Check if CAPTCHA is required, optionally handling the
+            // asynchronous communication callback
+            if (!this.isRequiredQueried) {
+                this.queryIsRequired(function (error) {
+                    if (!callback) {
+                        return;
+                    }
+                    if (error) {
+                        return callback(error);
+                    }
+                    callback(false, Captcha.isValid());
+                });
+                return false;
+            }
+
+            // Login without CAPTCHA
+            if (!this.isRequired) {
+                return callback ? callback(false, true) : true;
+            }
+
+            var values = this.form.getForm().getValues();
+
+            var captchaShown = Ext.getCmp('captcha-text').isVisible();
+            var hasCaptcha = !!values['captchaText'];
+
+            // CAPTCHA already shown but not filled in
+            if (captchaShown && !hasCaptcha) {
+                Axi.Messenger.getInstance().error(
+                    t('Please fill in the CAPTCHA field.')
+                );
+
+                Captcha.focus();
+
+                return callback ? callback(false, false) : false;
+
+            // Login with CAPTCHA
+            } else if (hasCaptcha) {
+                var captchaId = getCookie('_captchaid');
+                if (captchaId) {
+                    Ext.getCmp('captchaId').setValue(captchaId);
+                }
+
+                return callback ? callback(false, true) : true;
+            }
+
+            return callback ? callback(false, false) : false;
+        },
+
+        queryIsRequired: function (callback)
+        {
+            var values = this.form.getForm().getValues();
+
+            Ext.Ajax.request({
+                url: '/captcha.hsp?action=isRequired&username=' + values['username'],
+                callback: function (o, success, response) {
+                    if (!success || !response.responseText) {
+                        Axi.Messenger.getInstance().error(
+                            t('Unable to connect to server!')
+                        );
+                        return callback ? callback(true) : false;
+                    }
+
+                    var data = Ext.util.JSON.decode(response.responseText);
+
+                    if (0 != data.status) {
+                        Axi.Messenger.getInstance().error(
+                            t('Login failed. Try again.')
+                        );
+                        return callback ? callback(true) : false;
+                    }
+
+                    // Show CAPTCHA
+                    this.isRequired = data.isRequired;
+                    this.isRequiredQueried = true;
+
+                    if (data.isRequired) {
+                        this.show();
+                    }
+
+                    if (callback) {
+                        callback(false);
+                    }
+                },
+                scope: this
+            });
+        },
+
+        show: function ()
+        {
+            var values = this.form.getForm().getValues();
+
+            Ext.getCmp('captcha-img').getEl().set({
+                src: '/captcha.hsp?action=show&username=' + values['username'] +
+                    '&t=' + new Date().getTime()
+            });
+
+            Ext.getCmp('captcha-img').show();
+            Ext.getCmp('captcha-reload').show();
+            Ext.getCmp('captcha-text').show();
+
+            // Update FocusManager's order
+            var spliceIdx = -1;
+            for (var i = 0; i < FocusManager.order.length; ++i) {
+                if ('password' == FocusManager.order[i]) {
+                    spliceIdx = i + 1;
+                    break;
+                }
+            }
+            if (spliceIdx > 0) {
+                FocusManager.order.splice(spliceIdx, 0, 'captchaText');
+            }
+        },
+
+        focus: function ()
+        {
+            if (Captcha.noFocus) {
+                Captcha.noFocus = false;
+                return;
+            }
+
+            var basicForm = this.form.getForm();
+            var usernameField = basicForm.findField('username');
+            var passwordField = basicForm.findField('password');
+            var captchaField = basicForm.findField('captchaText');
+
+            if (usernameField.getValue() && passwordField.getValue()) {
+                FocusManager.setActive(captchaField);
+            }
+        }
+    };
+    Captcha.init();
+
+    // Ensure the language cookie is set
+        switchLanguage('public_language', "en");
+
+    // Generate the languages data array
+        var languages = [];
+        languages.push(['ar', '&#1575;&#1604;&#1604;&#1594;&#1577; &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;']);
+            languages.push(['bg', '&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;']);
+            languages.push(['ca', 'Catal&#224;']);
+            languages.push(['cs', '&#268;e&#353;tina']);
+            languages.push(['da', 'Dansk']);
+            languages.push(['de', 'Deutsch']);
+            languages.push(['en', 'English']);
+            languages.push(['es', 'Espa&#241;ol']);
+            languages.push(['fa', '&#1601;&#1575;&#1585;&#1587;&#1740;']);
+            languages.push(['fi', 'Suomi']);
+            languages.push(['fr', 'Fran&#231;ais']);
+            languages.push(['he', '&#1506;&#1460;&#1489;&#1456;&#1512;&#1460;&#1497;&#1514;']);
+            languages.push(['hi', '&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;']);
+            languages.push(['hr', 'Hrvatski']);
+            languages.push(['hu', 'Magyar']);
+            languages.push(['id', 'Bahasa Indonesia']);
+            languages.push(['it', 'Italiano']);
+            languages.push(['ja', '&#26085;&#26412;&#35486;']);
+            languages.push(['ko', '&#54620;&#44397;&#50612;']);
+            languages.push(['lv', 'Latvie&#353;u']);
+            languages.push(['mk', '&#1084;&#1072;&#1082;&#1077;&#1076;&#1086;&#1085;&#1089;&#1082;&#1080;']);
+            languages.push(['nl', 'Nederlands']);
+            languages.push(['no', 'Norsk']);
+            languages.push(['pl', 'Polski']);
+            languages.push(['pt', 'Portugu&#234;s']);
+            languages.push(['ro', 'Rom&#226;n&#259;']);
+            languages.push(['ru', '&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;']);
+            languages.push(['sk', 'Sloven&#269;ina']);
+            languages.push(['sv', 'Svenska']);
+            languages.push(['th', '&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;']);
+            languages.push(['tk', 'T&#252;rkmen&#231;e']);
+            languages.push(['tr', 'T&#252;rk&#231;e']);
+            languages.push(['zh-cn', '&#31616;&#20307;&#20013;&#25991;']);
+            languages.push(['zh-tw', '&#32321;&#39636;&#20013;&#25991;']);
+            // Build the languages combo store
+        var languagesStore = [];
+        for (var i = 0; i < languages.length; ++i) {
+            var entry = languages[i];
+
+            var lang = entry[0];
+            var name = entry[1];
+
+            name = name.replace(/[&#[0-9]+;]*/ig, function (chr) {
+                return String.fromCharCode(chr.replace(/[&#;]/ig, ''));
+            });
+
+            languagesStore.push([
+                lang,
+                name
+            ]);
+        }
+
+        // Sort the language store taking into account unicode names
+        languagesStore.sort(function (a, b) {
+            return a[1].localeCompare(b[1], "en");
+        });
+
+        new Ext.form.ComboBox({
+            renderTo: 'language-container',
+            store: languagesStore,
+            triggerAction: 'all',
+            editable: true,
+            lazyInit: true,
+            minChars: 0,
+            mode: 'local',
+            disableKeyFilter: true,
+            forceSelection: true,
+            listAlign: 'bl-tl',
+            width: 125,
+            maxHeight: 430,
+
+            ctCls: 'x-axi-combo en-flag',
+            cls: 'x-axi-language-combo',
+            listClass: 'x-axi-combo-list x-axi-language-list',
+            selectedClass: 'x-axi-item-selected',
+
+            renderedClasses: false,
+
+            listeners: {
+                expand: function (cmp) {
+                    if (cmp.renderedClasses) return;
+
+                    // HACK to inject language dependent flag classes
+                    var listOptions = cmp.list.query('.x-combo-list-item');
+
+                    cmp.store.each(function (item, index, length) {
+                        listOptions[index].className += " " + item.get("value") + "-flag";
+                    });
+
+                    cmp.renderedClasses = true;
+                },
+                select: function (combo, record, index) {
+                    var lang = record.get('value');
+
+                    var ct = combo.getEl().findParent('.x-axi-combo');
+                    var cls = ct.className.match(/[a-z]+-flag/);
+
+                    if (cls == null) {
+                        return false;
+                    }
+
+                    cls = cls[0];
+
+                    Ext.fly(ct).removeClass(cls);
+                    Ext.fly(ct).addClass(lang + '-flag');
+
+                    // Set cookie and reload page
+                    switchLanguage('public_language', lang);
+                    document.location.href = 'index.html';
+                },
+
+                collapse: function (cmp) {
+                    cmp.setRawValue(
+                        languagesStore.filter(function (el) {
+                            return el[0] === cmp.getValue()}
+                        )[0][1]
+                    );
+                }
+            },
+            name: 'language',
+            value: 'en'
+        });
+    });
+
+
+</script>
+<form name="remember" style="display: none;"><input type="text" name="username"/><input type="password" name="password"/></form>
+</body>
+
+<!-- Mirrored from mail.ecp.gov.pk/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 11:05:44 GMT -->
+</html>
+
